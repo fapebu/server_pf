@@ -1,14 +1,14 @@
 const mysql = require('mysql');
 const util = require('util');
-const {authDb} = require("./settings");
+const auth = require("./settings");
 var db;
 
-function connectDatabase(){
+function  connectDatabase(){
     if(!db){
-        db = mysql.createConnection(authDb);
+        db = mysql.createConnection(auth.authDb());
         
         db.connect((error) => {
-            if (error) {
+            if (!error) {
                 console.log('Conexion con la base de datos mysql establecida');
             }
             else{
@@ -16,10 +16,13 @@ function connectDatabase(){
             }
         
         });
-        
-        const dbp = util.promisify(db.query).bind(db); //transformamos la funcion en una promesa.
-        return dbp
-}
+    }
+        db.query = util.promisify(db.query); //transformamos la funcion en una promesa.
+        /*const query = 'SELECT * FROM entrada WHERE id = ?';
+        const respuesta = await dbp(query, 1);
+        console.log(respuesta);*/
+        return db;
+
 
 
 }

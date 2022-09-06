@@ -1,7 +1,7 @@
 const entradaService = require("../services/entrada_service");
 module.exports = {
 
-    agregarEntrada: function(data){
+    agregarEntrada: async function(data){
         try {
             var date_regex = /^(0[1-9]|1[0-2])-(0[1-9]|1\d|2\d|3[01])-(0[1-9]|1[1-9]|2[1-9])$/;
             var hour_regex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
@@ -20,8 +20,38 @@ module.exports = {
             const date = data.fecha.replaceAll('-', '/');
             data.fecha = date;
             
-        const entrada = entradaService.agregarEntrada(data)
-        return true;
+        const entrada = await entradaService.agregarEntrada(data)
+        return entrada;
+        }   
+        catch (error) {
+            return {
+                    error: error.message
+                    };
+        }
+    },
+
+    devuelveEntrada: async function(id){
+        try {
+            
+            if(isNaN(id)){
+                throw new Error ("Id no valido");
+            }
+            
+            
+        const entrada = await entradaService.devuelveEntrada(id)
+        return entrada;
+        }   
+        catch (error) {
+            return {
+                    error: error.message
+                    };
+        }
+    },
+    devuelveTodas: async function(){
+        try {
+            
+            const entrada = await entradaService.devuelveTodos();
+            return entrada;
         }   
         catch (error) {
             return {
@@ -29,8 +59,6 @@ module.exports = {
                     };
         }
     }
-
-
 
 
 

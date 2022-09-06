@@ -6,7 +6,7 @@ module.exports = {
             host: 'localhost',
             user: 'root',
             password: '',
-            database: 'tp_node'
+            database: 'server_pf'
         }
 
         return conexion;
