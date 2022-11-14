@@ -1,8 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT ? process.env.PORT : 3000;
+const port = process.env.PORT ? process.env.PORT : 3001;
 app.use(express.json());
+app.use(cors());
 const rutasPersonas = require('./routes/entrada_route');
 const rutasPuertas = require('./routes/aperturaPuerta_route');
 const rutasMonoxido = require('./routes/monoxido_route');
@@ -19,6 +20,6 @@ app.use("/temperatura",rutasTempratura);
 
 app.use("/humedad",rutasHumedad);
 
-app.listen(3000, function () {
+app.listen(port, function () {
 console.log('Server iniciado en el puerto: ' + port);
 });
