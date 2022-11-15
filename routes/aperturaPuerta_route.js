@@ -3,15 +3,21 @@ const express = require('express');
 const app = express.Router();
 const aperturaPuertaControler = require("../controler/aperturaPuerta_controler");
 
-app.get("/:id", async function(req,res){
-    const id =  req.params.id;
-    const entrada = await aperturaPuertaControler.aperturaPuerta(id);
+app.get("/insert/:id/:status/", async function(req,res){
+    const data = {
+        id : req.params.id,
+        status : req.params.status
+    }
+    
+    const entrada = await aperturaPuertaControler.aperturaPuerta(data);
     res.json(entrada);
 })
 
-app.get("/clear/:id/", async function(req,res){
+
+
+app.get("/status/:id/", async function(req,res){
     const id =  req.params.id;
-    const entrada = await aperturaPuertaControler.clearNotPuerta(id);
+    const entrada = await aperturaPuertaControler.statusPuerta(id);
     res.json(entrada);
 
 })

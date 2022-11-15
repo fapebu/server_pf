@@ -1,20 +1,19 @@
 const model = require("../model/aperturaPuerta");
 module.exports = {
 
-    aperturaPuerta: async function(id){
+    aperturaPuerta: async function(data){
             
-            const response = await model.aperturaPuerta(id)
+            const response = await model.aperturaPuerta(data)
             return response;
 
      
     },
-    clearNotPuerta: async function(id){
+    
+    statusPuerta: async function(id){
             
-        const response = await model.clearNotPuerta(id);
+        const response = await model.statusPuerta(id);
         return response;
     }
-    
-
 
 
 }

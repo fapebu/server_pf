@@ -1,14 +1,14 @@
 const entradaService = require("../services/aperturaPuerta_service");
 module.exports = {
-    aperturaPuerta: async function(id){
+    aperturaPuerta: async function(data){
         try {
             
-            if(isNaN(id)){
+            if(isNaN(data.id)){
                 throw new Error ("Id no valido");
             }
             
             
-        const entrada = await entradaService.aperturaPuerta(id);
+        const entrada = await entradaService.aperturaPuerta(data);
         return entrada;
         }   
         catch (error) {
@@ -18,7 +18,9 @@ module.exports = {
         }
     },
 
-    clearNotPuerta: async function(id){
+
+
+    statusPuerta: async function(id){
         try {
             
             if(isNaN(id)){
@@ -26,7 +28,7 @@ module.exports = {
             }
             
             
-        const entrada = await entradaService.clearNotPuerta(id);
+        const entrada = await entradaService.statusPuerta(id);
         return entrada;
         }   
         catch (error) {
