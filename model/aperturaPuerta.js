@@ -4,7 +4,7 @@ module.exports = {
     aperturaPuerta: async function(data){
       try {
             
-      const query = 'UPDATE `aperturapuerta` SET `id` = ? , `status` = ? WHERE `id` = ? ';
+      const query = 'UPDATE `aperturapuerta` SET `id` = ? , `status_puerta` = ? WHERE `id` = ? ';
       const respuesta = await conexion.query(query, [data.id,data.status,data.id]);
       
       if (respuesta.affectedRows == 0) {

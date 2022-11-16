@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT ? process.env.PORT : 3001;
+const port = process.env.PORT ? process.env.PORT : 3001;//REMPLAZAR POR EL PUERTO QUE SE QUIERA
 app.use(express.json());
 app.use(cors());
-
+const IP = "localhost"; //REMPLAZAR IP 
 const rutasPersonas = require('./routes/entrada_route');
 const rutasPuertas = require('./routes/aperturaPuerta_route');
 const rutasMonoxido = require('./routes/monoxido_route');
@@ -23,7 +23,8 @@ app.use("/temperatura",rutasTempratura);
 app.use("/humedad",rutasHumedad);
 
 app.use("/realtime",rutasRealTime);
-
-app.listen(port, function () {
+//-------------Descomentar para utilizar con IP-----------
+//app.listen(IP,port, function () {
+app.listen(port,IP, function () {
 console.log('Server iniciado en el puerto: ' + port);
 });
