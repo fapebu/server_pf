@@ -23,8 +23,7 @@ app.use("/temperatura",rutasTempratura);
 app.use("/humedad",rutasHumedad);
 
 app.use("/realtime",rutasRealTime);
-//-------------Descomentar para utilizar con IP-----------
-//app.listen(IP,port, function () {
+
 app.listen(port,IP, function () {
 console.log('Server iniciado en el puerto: ' + port);
 });
