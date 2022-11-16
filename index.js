@@ -10,7 +10,7 @@ const rutasPuertas = require('./routes/aperturaPuerta_route');
 const rutasMonoxido = require('./routes/monoxido_route');
 const rutasTempratura = require('./routes/temperatura_route');
 const rutasHumedad = require('./routes/humedad_route');
-
+const rutasRealTime = require('./routes/realTime_route');
 //asignamos las rutas
 app.use("/entrada",rutasPersonas);
 
@@ -21,6 +21,8 @@ app.use("/monoxido",rutasMonoxido);
 app.use("/temperatura",rutasTempratura);
 
 app.use("/humedad",rutasHumedad);
+
+app.use("/realtime",rutasRealTime);
 
 app.listen(port, function () {
 console.log('Server iniciado en el puerto: ' + port);
