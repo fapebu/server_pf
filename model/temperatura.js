@@ -3,17 +3,12 @@ var conexion = require("../db");
 module.exports = {
     agregarDato: async function(data){
       try {
-            
-            const query = 'UPDATE `temperatura` SET `id` = ? , `temp` = ? WHERE `id` = ? ';
-            const respuesta = await conexion.query(query, [data.id,data.temp,data.id]);
-            
-            if (respuesta.affectedRows == 0) {
-                const query = 'INSERT INTO `temperatura`(`id`, `temp`) VALUES (?,?)';
-                const respuesta = await conexion.query(query, [data.id,data.temp]);
+              const query = 'INSERT INTO `temperatura`(`id`,`temp`,`hora`) VALUES (?,?,?)';
+                const respuesta = await conexion.query(query, [data.id,data.temp,data.hora]);
                 if (respuesta.affectedRows == 0) {
                     throw new Error("error al insertar nueva entrada");
                 }
-            }
+            
 
             return respuesta;
       }

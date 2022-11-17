@@ -3,10 +3,11 @@ const express = require('express');
 const app = express.Router();
 const humedadControler = require("../controler/humedad_controler.js");
 
-app.get("/:id/:humedad/", async function(req,res){
+app.get("/:id/:humedad/:hora", async function(req,res){
         const data = {
             id : req.params.id,
-            humedad : req.params.humedad
+            humedad : req.params.humedad,
+            hora : req.params.hora
         }
         
         const respuesta = await humedadControler.agregarDato(data);
