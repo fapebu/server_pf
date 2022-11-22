@@ -3,7 +3,10 @@ module.exports = {
 
     agregarEntrada: async function(data){
         try {
-            var date_regex = /^(0[1-9]|1[0-2])-(0[1-9]|1\d|2\d|3[01])-(0[1-9]|1[1-9]|2[1-9])$/;
+            const date = data.fecha.replaceAll('-', '/');
+            data.fecha = date;
+            
+            var date_regex = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/
             var hour_regex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
             
             //formato de fecha "mm-dd-aa"
@@ -17,8 +20,7 @@ module.exports = {
             if(isNaN(data.id)){
                 throw new Error ("Id no valido");
             }
-            const date = data.fecha.replaceAll('-', '/');
-            data.fecha = date;
+            
             
         const entrada = await entradaService.agregarEntrada(data)
         return entrada;
@@ -58,8 +60,20 @@ module.exports = {
                     error: error.message
                     };
         }
+    },
+
+    
+    devuelveStatus: async function(){
+        try {
+            
+            const entrada = await entradaService.devuelveStatus();
+            return entrada;
+        }   
+        catch (error) {
+            return {
+                    error: error.message
+                    };
+        }
     }
-
-
 
 }

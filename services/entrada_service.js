@@ -17,8 +17,12 @@ module.exports = {
             
         const response = await model.devuelveTodos();
         return response;
+    },
+    
+    devuelveStatus: async function(id){
+            
+        const response = await model.devuelveStatus();
+        return response;
     }
-
-
 
 }
