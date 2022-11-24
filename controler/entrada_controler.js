@@ -63,10 +63,10 @@ module.exports = {
     },
 
     
-    devuelveStatus: async function(){
+    devuelveStatus: async function(id){
         try {
             
-            const entrada = await entradaService.devuelveStatus();
+            const entrada = await entradaService.devuelveStatus(id);
             return entrada;
         }   
         catch (error) {

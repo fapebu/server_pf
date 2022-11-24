@@ -22,7 +22,7 @@ module.exports = {
     devuelveEntrada: async function(id){
       try {
             
-            const query = 'SELECT * FROM `entrada` ORDER BY `count` AND id = ? ASC LIMIT 1;';
+            const query = 'SELECT * FROM entrada WHERE id = ? ORDER BY register DESC LIMIT 1;';
             
             const respuesta = await conexion.query(query, [id]);
             
@@ -40,7 +40,7 @@ module.exports = {
     devuelveTodos: async function(id){
       try {
             
-            const query = 'SELECT * FROM `entrada` LIMIT 30';
+            const query = 'SELECT * FROM `entrada` ORDER BY register DESC LIMIT 30';
             
             const respuesta = await conexion.query(query);
             
@@ -58,7 +58,7 @@ module.exports = {
     devuelveStatus: async function(id){
       try {
             
-            const query = 'SELECT `status` FROM `entrada` ORDER BY `count` AND id = ? ASC LIMIT 1;';
+            const query = 'SELECT * FROM entrada WHERE id = ? ORDER BY register DESC LIMIT 1;';
             
             const respuesta = await conexion.query(query, [id]);
             

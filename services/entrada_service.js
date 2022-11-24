@@ -21,7 +21,7 @@ module.exports = {
     
     devuelveStatus: async function(id){
             
-        const response = await model.devuelveStatus();
+        const response = await model.devuelveStatus(id);
         return response;
     }
 
