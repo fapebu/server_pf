@@ -8,7 +8,7 @@ module.exports = {
       const respuesta = await conexion.query(query, [data.id,data.status,data.id]);
       
       if (respuesta.affectedRows == 0) {
-          const query = 'INSERT INTO  `aperturapuerta` (id,status) VALUES(?,?)';
+          const query = 'INSERT INTO  `aperturapuerta` (id,status_puerta) VALUES(?,?)';
           const respuesta = await conexion.query(query, [data.id,data.status]);
           if (respuesta.affectedRows == 0) {
               throw new Error("error al insertar nueva entrada");
