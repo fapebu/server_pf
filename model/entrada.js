@@ -22,12 +22,12 @@ module.exports = {
     devuelveEntrada: async function(id){
       try {
             
-            const query = 'SELECT * FROM entrada WHERE id = ? ORDER BY register DESC LIMIT 1;';
+            const query = 'SELECT * FROM entrada JOIN personas ON entrada.id = personas.id  AND  entrada.id = ? ORDER BY register DESC LIMIT 1;';
             
             const respuesta = await conexion.query(query, [id]);
             
             if (respuesta.length === 0) {
-                throw new Error("No se encontro ese id");
+                throw new Error("No se encontro ese id" + id);
        }
         return respuesta;
     }
