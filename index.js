@@ -2,8 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT ? process.env.PORT : 3001;//REMPLAZAR POR EL PUERTO QUE SE QUIERA
+const bodyParser = require('body-parser')
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 const IP = "localhost"; //REMPLAZAR IP 
 const rutasPersonas = require('./routes/entrada_route');
 const rutasPuertas = require('./routes/aperturaPuerta_route');
@@ -14,7 +17,7 @@ const rutasLuz = require('./routes/luz_route');
 const rutasMovimiento = require('./routes/movimiento_route');
 const rutasRealTime = require('./routes/realTime_route');
 const rutasNotificacion = require('./routes/notificacion_route.js');
-
+const rutasVisitantes = require('./routes/visitantes_route.js');
 //asignamos las rutas
 app.use("/entrada",rutasPersonas);
 
@@ -33,6 +36,8 @@ app.use("/movimiento",rutasMovimiento);
 app.use("/realtime",rutasRealTime);
 
 app.use("/notificacion",rutasNotificacion);
+
+app.use("/visitantes",rutasVisitantes);
 
 app.listen(port,IP, function () {
 console.log('Server iniciado en el puerto: ' + port);
