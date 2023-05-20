@@ -35,25 +35,6 @@ module.exports = {
         console.error("error:"+ e.message);
         return e.message;
       }
-    },
-    ultimoDato: async function(data){
-      try {
-            
-            const query = 'SELECT * FROM `temperatura` ORDER by id ASC LIMIT 1';
-            
-            const respuesta = await conexion.query(query, [data.id,data.temp]);
-            
-            if (respuesta.affectedRows == 0) {
-                throw new Error("Error al seleccionar el ultimo dato de la tabla temperatura");
-            }
-           
-
-            return respuesta;
-      }
-      catch (e) {
-        console.error("error:"+ e.message);
-        return e.message;
-      }
     }
 
 }

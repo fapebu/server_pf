@@ -34,23 +34,6 @@ module.exports = {
                     error: error.message
                     };
         }
-    },
-    ultimoDato: async function(data){
-        try {
-            
-            if(isNaN(data.id)|| isNaN(data.temp)){
-                throw new Error ("Id y temperatura no validos");
-            }
-            
-            
-        const entrada = await temperaturaService.ultimoDato(data);
-        return entrada;
-        }   
-        catch (error) {
-            return {
-                    error: error.message
-                    };
-        }
     }
 
 }

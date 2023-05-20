@@ -12,11 +12,7 @@ module.exports = {
         const response = await model.devolverDato(id);
         return response;
     },
-    ultimoDato: async function(data){
-            
-        const response = await model.ultimoDato(data);
-        return response;
-    },
+    
 
 
 

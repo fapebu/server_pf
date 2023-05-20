@@ -17,7 +17,6 @@ const rutasHumedad = require('./routes/humedad_route');
 const rutasLuz = require('./routes/luz_route');
 const rutasMovimiento = require('./routes/movimiento_route');
 const rutasRealTime = require('./routes/realTime_route');
-const rutasRTTempHum = require('./routes/rTTempHum_route');
 const rutasNotificacion = require('./routes/notificacion_route.js');
 const rutasVisitantes = require('./routes/visitantes_route.js');
 //asignamos las rutas
@@ -38,8 +37,6 @@ app.use("/luz",rutasLuz);
 app.use("/movimiento",rutasMovimiento);
 
 app.use("/realtime",rutasRealTime);
-
-app.use("/rtTempHum",rutasRTTempHum);
 
 app.use("/notificacion",rutasNotificacion);
 
