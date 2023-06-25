@@ -42,9 +42,9 @@ module.exports = {
     leido: async function(reg){
         try {
               
-            const query = 'UPDATE `notificacion` SET `status_notificacion` = ?  WHERE `register` = ? ';
+            const query = 'UPDATE `notificacion` SET `status_notificacion` = 0  WHERE `register` = ? ';
               
-              const respuesta = await conexion.query(query, [true,reg]);
+              const respuesta = await conexion.query(query, [reg]);
               
               if (respuesta.length === 0) {
                   throw new Error("No se encontro ese registro");
