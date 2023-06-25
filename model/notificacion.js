@@ -5,8 +5,8 @@ module.exports = {
     agregarDato: async function(data){
         try {
           
-                  const query = 'INSERT INTO `notificacion`(`id`,`info`,`color`,`status_notificacion`) VALUES (?,?,?,?)';
-                  const respuesta = await conexion.query(query, [data.id,data.info,data.color,false]);
+                  const query = 'INSERT INTO `notificacion`(`id`,`info`,`color`,`status_notificacion`,`hora`,`fecha`) VALUES (?,?,?,?,?,?)';
+                  const respuesta = await conexion.query(query, [data.id,data.info,data.color,false,data.hora,data.fecha]);
                   if (respuesta.affectedRows == 0) {
                       throw new Error("error al insertar nueva entrada");
                   }
