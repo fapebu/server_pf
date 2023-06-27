@@ -13,6 +13,11 @@ module.exports = {
         const response = await model.devuelveEntrada(id);
         return response;
     },
+    devuelveIngresos: async function(){
+            
+        const response = await model.devuelveIngresos();
+        return response;
+    },
     devuelveTodos: async function(id){
             
         const response = await model.devuelveTodos();

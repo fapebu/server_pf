@@ -49,6 +49,17 @@ module.exports = {
                     };
         }
     },
+    devuelveIngresos: async function(){
+        try {
+        const entrada = await entradaService.devuelveIngresos()
+        return entrada;
+        }   
+        catch (error) {
+            return {
+                    error: error.message
+                    };
+        }
+    },
     devuelveTodas: async function(){
         try {
             

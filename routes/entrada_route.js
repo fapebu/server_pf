@@ -3,7 +3,7 @@ const express = require('express');
 const app = express.Router();
 const entradaControler = require("../controler/entrada_controler");
 app.get("/", async function(req,res){
-    const entrada = await entradaControler.devuelveTodas();
+    const entrada = await entradaControler.devuelveIngresos();
         res.json(entrada);
 })
 
@@ -36,8 +36,6 @@ app.get("/:id", async function(req,res){
     const entrada = await entradaControler.devuelveEntrada(id);
         res.json(entrada);
 })
-
-
 
 
 module.exports = app;
