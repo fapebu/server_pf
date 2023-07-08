@@ -20,7 +20,7 @@ module.exports = {
     devolverDato: async function(id){
       try {
             
-            const query = 'SELECT * FROM `temperatura` WHERE id = ?';
+            const query = 'SELECT * FROM `temperatura` WHERE id = ? ORDER BY register DESC LIMIT 48';
             
             const respuesta = await conexion.query(query, [id]);
             

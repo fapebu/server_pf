@@ -21,7 +21,7 @@ module.exports = {
     devolverDato: async function(id){
       try {
             
-            const query = 'SELECT * FROM `monoxido` WHERE id = ?';
+            const query = 'SELECT * FROM `monoxido` WHERE id = ? ORDER BY register DESC LIMIT 60';
             
             const respuesta = await conexion.query(query, [id]);
             
